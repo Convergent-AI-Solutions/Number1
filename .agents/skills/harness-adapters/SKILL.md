@@ -42,7 +42,7 @@ If the captain asks for a new harness, propose verifying it first: spawn a trivi
 Within the Pi family, only the exact launch-boundary marker `FM_PI_HARNESS=pi-signed` alongside `PI_CODING_AGENT=true` selects the signed identity; unmarked shared launcher ancestry remains `pi`.
 `bin/fm-harness.sh crew` resolves the effective crew member harness from `config/crew-harness` (absent or `default` -> own).
 `bin/fm-harness.sh second officer` resolves the secondmate-launch harness through the chain `config/secondmate-harness` -> `config/crew-harness` -> own, so an unset `config/secondmate-harness` matches the crew harness.
-`bin/fm-spawn.sh` uses `crew` mode for a crewmate/scout launch and `second officer` mode for a `--secondmate` launch, re-resolving on every spawn so the split is durable across respawns; an explicit per-spawn harness arg overrides either.
+`bin/fm-spawn.sh` uses `crew` mode for a crew member/scout launch and `second officer` mode for a `--secondmate` launch, re-resolving on every spawn so the split is durable across respawns; an explicit per-spawn harness arg overrides either.
 On `unknown`, ask the captain instead of guessing.
 A captain override always beats detection.
 When verifying a new adapter, record its env marker and command name in `bin/fm-harness.sh`.
@@ -178,11 +178,11 @@ The shared symptom is a healthy-looking pane with no work in progress, so each a
 
 First launch in a fresh worktree, or first ever on a machine, may show a trust or bypass-permissions confirmation.
 After every spawn, peek the pane within about 20 seconds.
-If such a dialog is showing, accept it from an active Number One session using `FM_HOME=<this-firstmate-home> bin/fm-send.sh <window> --key Enter`, or the choice the dialog requires, unless `FM_HOME` is already set to the active Number One home; verify the brief started processing.
+If such a dialog is showing, accept it from an active Number One session using `FM_HOME=<this-number-one-home> bin/fm-send.sh <window> --key Enter`, or the choice the dialog requires, unless `FM_HOME` is already set to the active Number One home; verify the brief started processing.
 
 Claude renders a predicted-next-prompt suggestion as dim/faint text inside an otherwise-empty composer after a turn completes.
 A plain `tmux capture-pane` cannot tell that ghost text apart from typed text.
-Number One launches every claude crew member and second officer with `CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false`, scoped to firstmate-launched agents through `bin/fm-spawn.sh`, so it never touches the captain's global config.
+Number One launches every claude crew member and second officer with `CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false`, scoped to Number One-launched agents through `bin/fm-spawn.sh`, so it never touches the captain's global config.
 The CLI's `--prompt-suggestions` flag is print/SDK-mode only and does not suppress the interactive composer ghost text, verified empirically on v2.1.186.
 As defense in depth for any pane that flag cannot reach, including the captain's own Number One composer that away-mode reads, the shared `fm_composer_strip_ghost` extractor in `bin/fm-composer-lib.sh` removes dim/faint SGR 2 ghost runs before pending-input classification on both ANSI-capable readers (tmux and herdr).
 Its broader dark-TRUECOLOR placeholder handling and dark-theme tradeoff are documented in `docs/herdr-backend.md` "Composer and injection safety", with active captures in `docs/verification/runtime-backends.md`.
@@ -338,11 +338,11 @@ The same structural read covers multi-row composers without fixed cursor offsets
 Turn-end hook: grok fires a `Stop` hook at every turn boundary, giving Number One a precise per-turn wake instead of only stale-pane detection.
 grok loads PROJECT hooks (`<worktree>/.grok/hooks/`, `<worktree>/.claude/settings.local.json`) only after the folder is granted hook-trust in `~/.grok/trusted_folders.toml`, which is not automatic and which Number One will not establish by editing grok's own managed trust store.
 GLOBAL hooks in `~/.grok/hooks/` are always trusted and load on first launch.
-So `fm-spawn` installs ONE firstmate-owned global hook, `~/.grok/hooks/fm-turn-end.json`, plus the companion `~/.grok/hooks/fm-turn-end.sh`, guarded as a no-op for every non-firstmate grok session.
-Its `Stop` command fires only when the current workspace holds a `.fm-grok-turnend` token pointer that matches the firstmate-owned hook registry under `~/.grok/hooks/fm-turn-end.d/`.
+So `fm-spawn` installs ONE Number One-owned global hook, `~/.grok/hooks/fm-turn-end.json`, plus the companion `~/.grok/hooks/fm-turn-end.sh`, guarded as a no-op for every non-Number One grok session.
+Its `Stop` command fires only when the current workspace holds a `.fm-grok-turnend` token pointer that matches the Number One-owned hook registry under `~/.grok/hooks/fm-turn-end.d/`.
 `fm-spawn` writes that per-task pointer (`<worktree>/.fm-grok-turnend`, gitignored via git info/exclude like the other harnesses' worktree hook files) and a matching registry entry naming this task's `state/<id>.turn-ended`.
 The hook reads `$GROK_WORKSPACE_ROOT`, which is always set for hooks and equals the worktree.
-This keeps the hook outside the worktree, needs no trust grant, and writes only firstmate-owned files.
+This keeps the hook outside the worktree, needs no trust grant, and writes only Number One-owned files.
 `fm-teardown` removes the worktree pointer before returning a pooled worktree.
 Second officer spawns skip the pointer (idle panes are healthy, no stale-pane detection for them).
 

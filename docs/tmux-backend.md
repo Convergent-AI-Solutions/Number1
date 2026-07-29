@@ -27,7 +27,7 @@ Crew tasks become windows in that session.
 If the primary harness runs outside tmux, Number One creates or reuses a detached session named `firstmate`:
 
 ```sh
-tmux attach -t Number One
+tmux attach -t firstmate
 ```
 
 Each task window is named `fm-<id>`.

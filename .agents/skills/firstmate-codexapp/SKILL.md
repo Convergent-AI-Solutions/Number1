@@ -31,7 +31,7 @@ For helpers outside `bin/`, inspect the source or header before running `--help`
    No host tool currently creates Codex App projects for an agent, so the human must add the project in Desktop before a created thread can reliably land there.
 3. Do not create projectless threads for repo work.
    If the project is absent, stop and ask for the project to be added or use a normal Number One backend instead.
-4. Decide whether this is a real Firstmate-managed task or a visible companion thread.
+4. Decide whether this is a real Number One-managed task or a visible companion thread.
    A real task needs a task id, an isolated worktree or Desktop-owned cwd, a branch plan, and a writable `state/<id>.status` path.
 
 ## Create And Send
@@ -57,7 +57,7 @@ If the user types directly into the visible thread, treat that as authoritative 
 A Desktop-owned Codex thread can append to Number One status files only when the prompt gives an absolute path and the Desktop permission context can write that checkout.
 That makes status writes a verified return-channel requirement, not a fact to assume.
 
-For a Firstmate-managed task, include an explicit status instruction:
+For a Number One-managed task, include an explicit status instruction:
 
 ```text
 Append supervisor-visible status lines to <absolute-firstmate-home>/state/<task-id>.status.

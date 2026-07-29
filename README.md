@@ -185,7 +185,7 @@ Number One's skills live in two separate places with different audiences:
 - `skills/` - public, installer-facing skills meant to be installed standalone into any project, independent of Number One.
   Each one is a self-contained skill with no dependency on Number One's paths, tools, or vocabulary.
   Today that is `skills/stow`, a generic session-knowledge-sweep skill that routes findings by explicit instruction first, then existing local conventions, then a private `.stow-notes.md` fallback in the current directory, and closes with a resume pointer for the next session.
-  It intentionally shares no code with the firstmate-internal `.agents/skills/stow` it is named after, so the two can evolve independently.
+  It intentionally shares no code with the Number One-internal `.agents/skills/stow` it is named after, so the two can evolve independently.
 
 ## Documentation
 

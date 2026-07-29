@@ -120,7 +120,7 @@ embedded identifier (see lockstep section).
 
 ## Execution note
 
-Per `CONTRIBUTING.md`, changes to firstmate's tracked material must load the agent-only
+Per `CONTRIBUTING.md`, changes to Number One's tracked material must load the agent-only
 **`firstmate-coding-guidelines`** skill first, follow one-sentence-per-line Markdown, keep
 `README.md` concise, and ship through the repo's normal review path. Work happens on branch
 `claude/space-navy-theme-redesign-5q5w0t`.
@@ -133,4 +133,4 @@ Run from the repo root after edits:
 3. `bin/fm-test-run.sh --all` — full behavior regression (this re-skin touches contract prose broadly, so a complete walk is warranted rather than `--changed`). Pay special attention to `fm-captain-translation-contract`, `fm-x-mode`, `fm-bearings-snapshot`, `fm-session-start`, `fm-bootstrap`.
 4. `bin/fm-doc-audience-check.sh` — after the `docs/**` and skill edits.
 5. Symlink integrity: `[ "$(readlink CLAUDE.md)" = "AGENTS.md" ]` and `[ "$(readlink .claude/skills)" = "../.agents/skills" ]`.
-6. Sanity greps that identifiers survived: confirm `bin/`, `FM_*`, `config/`, `data/`, `state/`, `kind=`, and skill-dir names are unchanged (`git diff --stat` should show no renamed/added/removed files; diff should be prose-only). Confirm no stray "firstmate"→"Number One" edit landed inside a code identifier.
+6. Sanity greps that identifiers survived: confirm `bin/`, `FM_*`, `config/`, `data/`, `state/`, `kind=`, and skill-dir names are unchanged (`git diff --stat` should show no functional file renamed or removed, and beyond the added plan doc and banner asset the diff should be prose-only). Confirm no stray "firstmate"→"Number One" edit landed inside a code identifier.

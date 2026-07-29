@@ -333,7 +333,7 @@ The Workflow tool call was not blocked by a hook. It executed normally: launched
 and completed successfully returning {"result":"ok"}.
 ```
 
-Same hook, same bytes, deny in the primary home and allow in a crewmate-shaped worktree.
+Same hook, same bytes, deny in the primary home and allow in a crew-member-shaped worktree.
 This is the scoping contract working end to end rather than a hook that simply never fires.
 
 ### Escape hatch
