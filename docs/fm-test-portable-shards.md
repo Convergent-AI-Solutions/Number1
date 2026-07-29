@@ -1,4 +1,4 @@
-# Firstmate portable test shards (Phase 4)
+# Number One portable test shards (Phase 4)
 
 This document records how the two portable parallel CI shards were balanced from measured evidence.
 Composition and execution are owned by `bin/fm-test-run.sh` (`--lane portable-parallel-1` / `portable-parallel-2` / `portable-serial`).
@@ -65,7 +65,7 @@ Exact ordered membership is the heredoc lists in `bin/fm-test-run.sh` (`list_por
 ## Portable serial remainder
 
 `portable-serial` is every `tests/*.test.sh` that is neither proven-isolated nor `real-herdr-gated`.
-That keeps watcher, lock, AFK, real tmux, daemon, secondmate lifecycle, bootstrap, live-harness opt-in (default skip), GUI backends, and other stateful or unproven work serial.
+That keeps watcher, lock, AFK, real tmux, daemon, second officer lifecycle, bootstrap, live-harness opt-in (default skip), GUI backends, and other stateful or unproven work serial.
 Measured serial remainder wall (from the same Phase 1 artifacts, excluding Herdr) is about **13 minutes**.
 
 ## Coverage guard

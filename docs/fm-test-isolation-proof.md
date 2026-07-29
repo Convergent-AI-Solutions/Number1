@@ -1,4 +1,4 @@
-# Firstmate test isolation proof (Phase 2)
+# Number One test isolation proof (Phase 2)
 
 This document is the archived concurrent isolation proof for the portable parallel candidate set.
 It is the human-readable companion to `bin/fm-test-isolation-proof.sh`.

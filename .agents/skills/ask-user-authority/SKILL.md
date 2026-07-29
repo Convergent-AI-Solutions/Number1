@@ -29,7 +29,7 @@ The concise standing authority boundary remains always loaded in `AGENTS.md` sec
    Destructive, irreversible, and genuinely security-sensitive choices always escalate regardless of whether they also expand the contract.
 
 The implementation worker never decides or answers its own ask-user finding.
-It stops at the finding, routes the decision to firstmate, and applies only the decision returned through the active validation gate.
+It stops at the finding, routes the decision to Number One, and applies only the decision returned through the active validation gate.
 
 ## Captain-facing escalation
 

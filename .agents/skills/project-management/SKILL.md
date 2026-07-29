@@ -1,7 +1,7 @@
 ---
 name: project-management
 description: >-
-  Agent-only procedure for Firstmate project management.
+  Agent-only procedure for Number One project management.
   Use before adding, creating, removing, or initializing a project.
   Owns project add, create, clone, remove, initialization, registry, delivery-mode, autonomy, and outward-consent decisions.
 user-invocable: false
@@ -12,8 +12,8 @@ metadata:
 # project-management
 
 Use this procedure before adding, creating, removing, or initializing a project.
-This skill is the single owner of Firstmate's project-management procedure.
-It does not replace `secondmate-provisioning`, which owns project clones inside persistent secondmate homes.
+This skill is the single owner of Number One's project-management procedure.
+It does not replace `secondmate-provisioning`, which owns project clones inside persistent second officer homes.
 
 ## Preconditions and registry
 
@@ -70,9 +70,9 @@ If doctor reports an environment, authentication, or daemon problem, resolve tha
 
 ## Remove
 
-Project removal is destructive and is not one of Firstmate's current direct-write exceptions under `projects/`.
-Never issue a raw removal command from Firstmate.
-First obtain the captain's explicit removal decision, then inspect the current digest and authoritative repositories for in-flight or queued work, registered secondmate clones, linked worktrees, dirty files, unpushed commits, and any other unlanded work.
+Project removal is destructive and is not one of Number One's current direct-write exceptions under `projects/`.
+Never issue a raw removal command from Number One.
+First obtain the captain's explicit removal decision, then inspect the current digest and authoritative repositories for in-flight or queued work, registered second officer clones, linked worktrees, dirty files, unpushed commits, and any other unlanded work.
 If any dependency or unlanded work exists, stop and report it before changing the registry.
 Until a guarded removal helper and corresponding prime-directive exception exist, report that implementation gap instead of bypassing the project-write boundary.
 When a clone has already been removed through an approved guarded path, or the registry is provably stale because no clone exists, remove its registry line so navigation matches reality.

@@ -70,13 +70,13 @@ Both launches executed a submitted tool instruction and touched the generated `t
 The pi-signed launch retained `harness=pi-signed`, while the plain comparison retained `harness=pi`.
 The exact wrapper ancestry was `pi-signed` parent to Pi engine child, and the plain Pi Launcher path also traversed the signed wrapper on this installation.
 That shared plain-Pi path is retained as disconfirming evidence against using ancestry as runtime-selection authority.
-Firstmate therefore sets the exact `FM_PI_HARNESS` selection marker on both worker launch paths, while an unmarked Pi-family process remains `pi`.
+Number One therefore sets the exact `FM_PI_HARNESS` selection marker on both worker launch paths, while an unmarked Pi-family process remains `pi`.
 Both recorded runtime identities now classify the exact `pi-launcher` foreground command as `alive`.
 
 Backend applicability was reviewed across every spawn adapter.
 Tmux needs the exact `pi-launcher`, `pi-signed`, `pi`, and `Pi` process identities for recovery-grade liveness.
 Herdr uses native registered-agent state and needs no process-name branch.
-Zellij has no verified recovery-grade agent process probe, while Orca and cmux do not support secondmate spawns, so those three retain their existing generic ordinary-launch semantics without a new liveness matcher.
+Zellij has no verified recovery-grade agent process probe, while Orca and cmux do not support second officer spawns, so those three retain their existing generic ordinary-launch semantics without a new liveness matcher.
 
 The structural multi-row composer reader, Kimi pointer-delivery path, and OpenCode 1.18.4 busy-queue behavior are pinned by:
 
@@ -182,7 +182,7 @@ HERDR_LAB_HELPER=bin/fm-herdr-lab.sh \
   tests/fm-backend-herdr-workspace-per-home-e2e.test.sh
 ```
 
-Observed guarantee: the primary and secondmate used distinct home workspaces, a child launched by the secondmate stayed in that secondmate workspace, list-live remained home-scoped, and exact cleanup did not affect sibling homes.
+Observed guarantee: the primary and second officer used distinct home workspaces, a child launched by the second officer stayed in that second officer workspace, list-live remained home-scoped, and exact cleanup did not affect sibling homes.
 
 The complete projection suite ran on 2026-07-21 against Herdr 0.7.4 protocol 16:
 
@@ -194,10 +194,10 @@ HERDR_LAB_HELPER=bin/fm-herdr-lab.sh \
 Observed guarantees included:
 
 ```text
-ok - real Herdr lab: primary and two secondmate homes each own a top-level contiguous child block
+ok - real Herdr lab: primary and two second officer homes each own a top-level contiguous child block
 ok - real Herdr lab: concurrent primary/A/B spawns stay session-locked with zero focus drift
-ok - real Herdr lab: session lock contention from a secondmate home falls back flat with no journal
-ok - real Herdr lab: legacy projection labels and flat secondmate tabs are left unmigrated
+ok - real Herdr lab: session lock contention from a second officer home falls back flat with no journal
+ok - real Herdr lab: legacy projection labels and flat second officer tabs are left unmigrated
 ok - real Herdr lab: multi-home exact-pane teardowns restore captain focus without workspace close authority
 ok - real Herdr lab validation completed on Herdr 0.7.4 with the default-session tripwire intact
 ```
@@ -215,7 +215,7 @@ Observed restart-reclaim guarantees:
 
 ```text
 ok - real Herdr lab: Hi Bit and Wheelhouse-style same-identity restarts reclaim one nested space with exact focus and idempotence
-ok - real Herdr lab: secondmate restart binding and reclaim stay isolated to the exact child home and parent
+ok - real Herdr lab: second officer restart binding and reclaim stay isolated to the exact child home and parent
 ok - real Herdr lab: concurrent cross-home recoveries replace exact husks under one session lock with no focus drift
 ok - real Herdr lab: missing, renamed, and duplicate tokens trigger zero destructive or adoptive calls, and live duplicate risk refuses launch
 ok - real Herdr lab validation completed on Herdr 0.7.5 with the default-session tripwire intact
@@ -353,14 +353,14 @@ cmux 0.64.17 (97) [9ed29d81a]
 Source and live checks established the five control modes:
 
 - `off` starts no listener.
-- `cmuxOnly` rejects an external Firstmate process by ancestry.
+- `cmuxOnly` rejects an external Number One process by ancestry.
 - `automation` uses an owner-only 0600 socket with no handshake.
 - `password` uses the same 0600 socket plus `auth <password>`.
 - `allowAll` uses a 0666 socket with no authentication.
 
 The live default rejection was `Access denied - only processes started inside cmux can connect`.
 The live password challenge was `Authentication required - send auth <password> first`.
-The app configuration writer did not retain a hand-added socket password, which is why the operator guide requires Settings and a local Firstmate password source.
+The app configuration writer did not retain a hand-added socket password, which is why the operator guide requires Settings and a local Number One password source.
 
 Current active CLI findings:
 
@@ -400,12 +400,12 @@ The host-tool sequence was:
 1. list a saved project;
 2. create a Desktop-owned worktree thread;
 3. recover and read the thread while active and after completion;
-4. verify the thread appended a Firstmate status line and wrote its report;
+4. verify the thread appended a Number One status line and wrote its report;
 5. send a follow-up to the same thread;
 6. read the completed follow-up;
 7. archive the exact thread;
 8. read the archived transcript with state `notLoaded`.
 
-Observed guarantee: a Desktop-owned thread can write Firstmate lifecycle files when the prompt provides an authorized absolute path, and create, send, read, and archive work at the Desktop host-tool layer.
-The missing guarantee remains a supported shell-callable bridge that lets Firstmate perform those operations against the same visible Desktop endpoint.
+Observed guarantee: a Desktop-owned thread can write Number One lifecycle files when the prompt provides an authorized absolute path, and create, send, read, and archive work at the Desktop host-tool layer.
+The missing guarantee remains a supported shell-callable bridge that lets Number One perform those operations against the same visible Desktop endpoint.
 App-server partial methods and raw socket experiments do not satisfy that bridge contract.

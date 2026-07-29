@@ -42,7 +42,7 @@ test_section_9_owns_positive_translation_contract() {
 test_scout_remains_allowed_house_vocabulary() {
   local contract
   contract=$(section_9)
-  assert_contains "$contract" "Scout and second mate are accepted Firstmate nautical house vocabulary and do not need translation" \
+  assert_contains "$contract" "Scout and second officer are accepted Number One house vocabulary and do not need translation" \
     "section 9 does not preserve scout as allowed Firstmate vocabulary"
   assert_not_contains "$contract" "scout -> investigation" \
     "section 9 must not map scout to investigation"
@@ -83,7 +83,7 @@ test_mapping_list_covers_high_risk_internal_families() {
     "hold, gate, ask-user, needs-decision, blocked, or paused -> the concrete decision" \
     "done, failed, fix-review, checks-passed, cancelled, validation step, or pipeline state -> the concrete result" \
     "brief -> instructions" \
-    "crewmate -> worker" \
+    "crew member -> worker" \
     "harness, backend, runtime, or adapter -> worker runtime or tool" \
     "status file, metadata, state, task id, or raw path -> durable record"; do
     assert_contains "$contract" "$phrase" "section 9 mapping list is missing '$phrase'"
@@ -106,7 +106,7 @@ test_verbatim_internal_evidence_is_rejected_from_chat() {
 test_routine_no_action_response_is_event_scoped() {
   local contract
   contract=$(section_9)
-  assert_contains "$contract" 'reply exactly `Captain, shipshape.` without characterizing the visible session' \
+  assert_contains "$contract" 'reply exactly `Captain, all systems nominal.` without characterizing the visible session' \
     "section 9 does not require the exact event-scoped routine no-action response"
   assert_not_contains "$contract" 'Captain, no decision is needed.' \
     "section 9 implies the visible session has no unrelated open decisions"
@@ -126,7 +126,7 @@ test_outward_facing_skill_points_reference_section_9_owner() {
     "stuck-worker failure does not reference section 9"
   assert_grep "under \`AGENTS.md\` section 9 that the requested worker runtime is not verified yet" "$HARNESS" \
     "runtime fallback does not reference section 9"
-  assert_grep "use firstmate's own verified runtime for current work" "$HARNESS" \
+  assert_grep "use Number One's own verified runtime for current work" "$HARNESS" \
     "runtime fallback does not require the current-work fallback"
   assert_grep "Do not pause current work for that future-verification choice, and never launch an unverified adapter." "$HARNESS" \
     "runtime fallback permits waiting on future verification or launching an unverified adapter"
@@ -134,7 +134,7 @@ test_outward_facing_skill_points_reference_section_9_owner() {
     "Codex Desktop result reporting does not reference section 9"
   assert_grep "It supplements \`AGENTS.md\` section 9; apply both, and this public-channel rule wins wherever it is stricter." "$FMX" \
     "X reply safety does not state that it supplements section 9"
-  assert_grep "under \`AGENTS.md\` section 9 without firstmate's internal vocabulary" "$UPDATE" \
+  assert_grep "under \`AGENTS.md\` section 9 without Number One's internal vocabulary" "$UPDATE" \
     "Firstmate update reporting does not reference section 9"
   pass "outward-facing skill handoffs point to the section 9 owner"
 }
@@ -216,7 +216,7 @@ test_ahoy_owns_only_the_visible_session_recap() {
 test_ahoy_scans_visible_history_for_open_decisions() {
   assert_grep 'preserve the ordinary recap interval: recap what happened after that message and before the current invocation.' "$AHOY" \
     "ahoy no longer preserves its ordinary recap interval"
-  assert_grep 'inspect the entire session history visible to the current first mate before the current invocation for every explicit captain decision that remains unanswered' "$AHOY" \
+  assert_grep 'inspect the entire session history visible to the current first officer before the current invocation for every explicit captain decision that remains unanswered' "$AHOY" \
     "ahoy does not scan globally visible session history for open decisions"
   assert_grep 'including decisions raised before the ordinary recap boundary.' "$AHOY" \
     "ahoy does not include open decisions from before the recap boundary"
