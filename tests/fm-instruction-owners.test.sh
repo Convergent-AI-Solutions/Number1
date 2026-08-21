@@ -42,7 +42,7 @@ test_new_skill_metadata_and_triggers() {
 }
 
 test_diagnostic_owner_covers_causal_procedure() {
-  assert_grep "single owner of Firstmate's bug-diagnosis reasoning procedure" "$DIAG" \
+  assert_grep "single owner of Number One's bug-diagnosis reasoning procedure" "$DIAG" \
     "diagnostic skill does not declare ownership"
   for phrase in \
     "end-to-end reproduction aligned with the real user path" \
@@ -61,7 +61,7 @@ test_diagnostic_owner_covers_causal_procedure() {
 }
 
 test_project_management_owner_covers_guarded_operations() {
-  assert_grep "single owner of Firstmate's project-management procedure" "$PROJECT" \
+  assert_grep "single owner of Number One's project-management procedure" "$PROJECT" \
     "project-management skill does not declare ownership"
   for phrase in \
     'bin/fm-project-mode.sh' \
@@ -71,7 +71,7 @@ test_project_management_owner_covers_guarded_operations() {
     'Default it off' \
     'Creating a GitHub repository is outward-facing.' \
     "captain's explicit consent" \
-    'Never issue a raw removal command from Firstmate.' \
+    'Never issue a raw removal command from Number One.' \
     'no-mistakes init && no-mistakes doctor'; do
     assert_grep "$phrase" "$PROJECT" "project-management owner is missing '$phrase'"
   done
@@ -87,7 +87,7 @@ test_generic_effort_fallback_respects_precedence() {
   ' "$HARNESS")
   assert_contains "$section" "explicit per-task captain instruction first" \
     "effort rubric lost per-task captain precedence"
-  assert_contains "$section" "standing dispatch profile or secondmate pin" \
+  assert_contains "$section" "standing dispatch profile or second officer pin" \
     "effort rubric lost standing configuration precedence"
   assert_contains "$section" 'Use `low` for well-understood work' \
     "effort rubric lost its low fallback"
@@ -106,7 +106,7 @@ test_generic_effort_fallback_respects_precedence() {
 test_agent_owned_quota_array_dispatch_contract() {
   local phrase
   for phrase in \
-    'Firstmate alone resolves a matched profile array' \
+    'Number One alone resolves a matched profile array' \
     'run `quota-axi --json` at that intake' \
     'evaluate every configured candidate against that current output' \
     'inspectable real headroom including quota-window pace' \

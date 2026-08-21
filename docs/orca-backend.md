@@ -1,13 +1,13 @@
 # Orca runtime backend
 
 Orca is an experimental macOS backend in which the Orca app owns both the task worktree and terminal endpoint.
-The crewmate harness remains the agent process launched inside that endpoint.
-Firstmate agents load [`firstmate-orca`](../.agents/skills/firstmate-orca/SKILL.md) before operating or recovering this backend.
+The crew member harness remains the agent process launched inside that endpoint.
+Number One agents load [`firstmate-orca`](../.agents/skills/firstmate-orca/SKILL.md) before operating or recovering this backend.
 
 ## Setup
 
 Pick Orca when you already use the Orca macOS app and want Orca-managed worktrees and terminals instead of Treehouse plus a session multiplexer.
-Orca is macOS-only, explicit-only, and does not support secondmate spawns.
+Orca is macOS-only, explicit-only, and does not support second officer spawns.
 
 Prerequisites:
 
@@ -15,10 +15,10 @@ Prerequisites:
 - The `orca` CLI, installed with `brew install orca`.
 - The universal harness and toolchain requirements in [`configuration.md`](configuration.md#toolchain).
 
-Select Orca with local `config/backend` containing `orca`, `FM_BACKEND=orca` for one launch, or an explicit request to Firstmate.
+Select Orca with local `config/backend` containing `orca`, `FM_BACKEND=orca` for one launch, or an explicit request to Number One.
 It is never auto-detected.
 
-Before any spawn mutates repository state, Firstmate requires `orca status --json` to report `reachable=true` and `state="ready"`.
+Before any spawn mutates repository state, Number One requires `orca status --json` to report `reachable=true` and `state="ready"`.
 The first task for a project registers that repository with `orca repo add --path` when needed.
 No manual repository registration is required.
 
@@ -40,7 +40,7 @@ orca_worktree_id=<orca worktree id>
 worktree=<absolute Orca worktree path>
 ```
 
-`window=` remains the caller-facing Firstmate alias.
+`window=` remains the caller-facing Number One alias.
 `terminal=` and `orca_worktree_id=` are the backend authority used by operation and cleanup paths.
 
 ## Current lifecycle and safety
@@ -53,19 +53,19 @@ Exact command flags and response parsing are owned by `bin/backends/orca.sh` and
 A bare shell row is `unknown`, not an empty agent composer.
 The watcher has no native Orca busy signal and uses the shared terminal-tail fallback.
 
-Cleanup keeps all shared Firstmate safety checks.
+Cleanup keeps all shared Number One safety checks.
 A scout still requires its report and completed decision inventory.
 A ship still refuses dirty or unlanded work.
 Before release, cleanup resolves the recorded Orca worktree id and verifies its path matches the recorded worktree path.
 A missing, unreadable, or mismatched identity preserves metadata and stops rather than deleting anything.
-After those checks, Firstmate closes the exact terminal and releases the exact worktree with Orca's worktree command.
+After those checks, Number One closes the exact terminal and releases the exact worktree with Orca's worktree command.
 It never raw-deletes an Orca worktree.
 
 ## Active limits
 
 - Orca is macOS-only and explicit-only.
 - The app must be running and report ready.
-- Secondmate spawns are unsupported.
+- Second officer spawns are unsupported.
 - Escape is unsupported.
 - Orca exposes no stable CLI version or protocol marker, so readiness is the compatibility gate rather than a version floor.
 - Only the verified terminal-handle and worktree result fields are accepted; speculative response shapes are rejected.

@@ -175,9 +175,9 @@ Argv-safe Notification Center command:
 ```sh
 /usr/bin/osascript \
   -e 'on run argv' \
-  -e 'display notification (item 1 of argv) with title "FIRSTMATE TEST - IGNORE" sound name "Basso"' \
+  -e 'display notification (item 1 of argv) with title "Number One TEST - IGNORE" sound name "Basso"' \
   -e 'end run' \
-  'FIRSTMATE TEST - IGNORE (wedge-alarm channel verification)'
+  'Number One TEST - IGNORE (wedge-alarm channel verification)'
 ```
 
 Observed output: no stdout, exit 0, and one banner with the supplied body.
@@ -185,8 +185,8 @@ Observed output: no stdout, exit 0, and one banner with the supplied body.
 Herdr command:
 
 ```sh
-herdr notification show 'FIRSTMATE TEST - IGNORE' \
-  --body 'FIRSTMATE TEST - IGNORE (wedge-alarm channel verification)' \
+herdr notification show 'Number One TEST - IGNORE' \
+  --body 'Number One TEST - IGNORE (wedge-alarm channel verification)' \
   --sound request
 ```
 

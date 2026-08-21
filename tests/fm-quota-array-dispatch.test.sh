@@ -122,7 +122,7 @@ test_owner_and_always_loaded_boundary() {
   assert_grep 'single owner of the pace-aware profile-array selection procedure' "$OWNER" \
     "quota-array-dispatch skill does not declare ownership"
 
-  assert_contains "$boundary" 'Firstmate alone resolves a matched profile array' \
+  assert_contains "$boundary" 'Number One alone resolves a matched profile array' \
     "intake boundary lost agent-owned array resolution"
   assert_contains "$boundary" 'run `quota-axi --json` at that intake' \
     "intake boundary lost quota-axi intake read"

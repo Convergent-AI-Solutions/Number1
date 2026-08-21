@@ -1,6 +1,6 @@
 # tmux runtime backend
 
-tmux is Firstmate's verified reference runtime backend and the fully supported baseline for secondmate homes.
+tmux is Number One's verified reference runtime backend and the fully supported baseline for second officer homes.
 [`configuration.md`](configuration.md#runtime-backend-configbackend--fm_backend) owns shared backend selection and metadata semantics.
 
 ## Setup
@@ -9,7 +9,7 @@ Install tmux with `brew install tmux` or your platform package manager.
 The universal harness and toolchain requirements are in [`configuration.md`](configuration.md#toolchain).
 
 tmux is the hard default when no explicit setting or runtime auto-detection selects another backend.
-Select it explicitly with local `config/backend` containing `tmux`, with `FM_BACKEND=tmux` for one launch, or by asking Firstmate to use tmux.
+Select it explicitly with local `config/backend` containing `tmux`, with `FM_BACKEND=tmux` for one launch, or by asking Number One to use tmux.
 An explicit selection is also the opt-out from Herdr or cmux runtime auto-detection.
 
 No provisioning is required before the first task.
@@ -24,7 +24,7 @@ tmux new -s firstmate
 
 Crew tasks become windows in that session.
 `tmux display-message -p '#S'` prints its name.
-If the primary harness runs outside tmux, Firstmate creates or reuses a detached session named `firstmate`:
+If the primary harness runs outside tmux, Number One creates or reuses a detached session named `firstmate`:
 
 ```sh
 tmux attach -t firstmate
@@ -77,7 +77,7 @@ Ambiguous pending text never receives the busy-queue conversion.
 
 ## Limits and regression entry points
 
-- tmux is the reference path and supports secondmate homes.
+- tmux is the reference path and supports second officer homes.
 - The OpenCode busy-queue exception is tmux-specific; Herdr retains its separately documented gap.
 
 ```sh
